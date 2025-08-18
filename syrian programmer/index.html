@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبرمج سوري - بوابة المبرمج السوري المبتدئ </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2A5B7C;
+            --secondary: #28A745;
+            --accent: #FFCA28;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, var(--primary) 0%, #1a3a52 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-box {
+            display: flex;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .search-box button:hover {
+            background-color: #e6b400;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(42, 91, 124, 0.9), rgba(26, 58, 82, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: 2px solid var(--accent);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Programming Types */
+        .programming-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 4rem;
+        }
+        
+        .type-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .type-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .type-header {
+            padding: 20px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .type-header i {
+            font-size: 2rem;
+        }
+        
+        .type-content {
+            padding: 20px;
+        }
+        
+        .type-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .type-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .language-tag {
+            background-color: #e9f5ff;
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .resources {
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .resources h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .resource-list {
+            list-style: none;
+        }
+        
+        .resource-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .resource-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .resource-list a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .resource-list a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Learning Path */
+        .learning-path {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 4rem;
+        }
+        
+        .path-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .path-steps::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .step {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+        
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: -40px;
+            top: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .resource-img {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .resource-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .resource-card:hover .resource-img img {
+            transform: scale(1.05);
+        }
+        
+        .resource-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .resource-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+            flex: 1;
+        }
+        
+        .platform {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 4rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--gray);
+            padding-top: 10px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, var(--dark) 0%, #23272b 100%);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .type-card, .resource-card {
+                max-width: 100%;
+            }
+            
+            .learning-path {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <h1>مبرمج <span>سوري</span></h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#types">أنواع البرمجة</a></li>
+                    <li><a href="#path">مسار التعلم</a></li>
+                    <li><a href="#resources">مصادر التعلم</a></li>
+                    <li><a href="#faq">الأسئلة الشائعة</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن لغة برمجة أو مفهوم...">
+                <button><i class="fas fa-search"></i> بحث</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>بوابة المبرمج السوري المبتدئ نحو الاحتراف</h2>
+            <p>موقع شامل لتعلم البرمجة من الصفر حتى الاحتراف، مع مسارات تعليمية مخصصة، دروس عملية، ومجتمع داعم للمبرمجين السوريين</p>
+            <div class="cta-buttons">
+                <a href="#path" class="btn btn-primary">ابدأ رحلتك الآن</a>
+                <a href="#types" class="btn btn-secondary">اكتشف مجالات البرمجة</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content container">
+        <!-- Programming Types -->
+        <section id="types">
+            <div class="section-title">
+                <h2>أنواع البرمجة والمجالات</h2>
+            </div>
+            
+            <div class="programming-types">
+                <!-- Web Development Card -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-code"></i>
+                        <h3>تطوير الويب</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>مجال إنشاء وتطوير المواقع الإلكترونية وتطبيقات الويب. يشمل العمل على واجهات المستخدم والخلفية وقواعد البيانات.</p>
+                        
+                        <div class="languages">
+                            <span class="language-tag">HTML/CSS</span>
+                            <span class="language-tag">JavaScript</span>
+                            <span class="language-tag">PHP</span>
+                            <span class="language-tag">Python</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <h4>مصادر تعلم ممتازة:</h4>
+                            <ul class="resource-list">
+                                <li><a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAzHSjcR-HnW9tnxyuye8KbF" target="_blank">دورة تطوير الويب - Elzero Web School</a></li>
+                                <li><a href="https://www.freecodecamp.org/learn" target="_blank">FreeCodeCamp - شهادات مجانية</a></li>
+                                <li><a href="https://www.theodinproject.com/" target="_blank">The Odin Project (مسار كامل)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Development Card -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>تطوير التطبيقات</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>تخصص في بناء تطبيقات الهواتف الذكية (أندرويد و iOS) وتطبيقات الحواسيب.</p>
+                        
+                        <div class="languages">
+                            <span class="language-tag">Java</span>
+                            <span class="language-tag">Kotlin</span>
+                            <span class="language-tag">Swift</span>
+                            <span class="language-tag">Flutter</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <h4>مصادر تعلم ممتازة:</h4>
+                            <ul class="resource-list">
+                                <li><a href="https://www.youtube.com/playlist?list=PLknwEmKsW8OuTqUDaFRBiAViDZ5uI3VcE" target="_blank">دورة تطوير تطبيقات أندرويد - عبدالله عيد</a></li>
+                                <li><a href="https://www.udacity.com/course/new-android-fundamentals--ud851" target="_blank">Udacity Android Developer (مجاني)</a></li>
+                                <li><a href="https://flutter.dev/learn" target="_blank">تعلم Flutter - الموقع الرسمي</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Science Card -->
+                <div class="type-card">
+                    <div class="type-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>علم البيانات والذكاء الاصطناعي</h3>
+                    </div>
+                    <div class="type-content">
+                        <p>مجال تحليل البيانات الضخمة، بناء نماذج تنبؤية، وتطوير أنظمة ذكاء اصطناعي وتعلم الآلة.</p>
+                        
+                        <div class="languages">
+                            <span class="language-tag">Python</span>
+                            <span class="language-tag">R</span>
+                            <span class="language-tag">SQL</span>
+                            <span class="language-tag">TensorFlow</span>
+                        </div>
+                        
+                        <div class="resources">
+                            <h4>مصادر تعلم ممتازة:</h4>
+                            <ul class="resource-list">
+                                <li><a href="https://www.youtube.com/playlist?list=PL9ooVrP1hQOHUfd-g8GUpKI3hHOwM_9Dn" target="_blank">علم البيانات بالعربي - أحمد عبيد</a></li>
+                                <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization - Coursera</a></li>
+                                <li><a href="https://www.kaggle.com/learn" target="_blank">Kaggle Learn (تمارين عملية)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Learning Path -->
+        <section id="path">
+            <div class="section-title">
+                <h2>مسار تعلم البرمجة للمبتدئين</h2>
+            </div>
+            
+            <div class="learning-path">
+                <div class="path-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>أساسيات البرمجة</h3>
+                            <p>ابدأ بتعلم المفاهيم الأساسية مثل المتغيرات، الشروط، الحلقات التكرارية، والدوال. لا تتعجل في اختيار لغة معينة في هذه المرحلة.</p>
+                            <p><strong>موصى به:</strong> Python أو JavaScript</p>
+                            <p><strong>مصادر:</strong> <a href="https://www.youtube.com/playlist?list=PLDoPjvoNmBAyE_gei5d18qkfIe-Z8mocs" target="_blank">دورة Python - Elzero</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>هيكلة البيانات والخوارزميات</h3>
+                            <p>تعلم هياكل البيانات الأساسية (المصفوفات، القوائم، المجموعات) والخوارزميات الأساسية (الترتيب، البحث). هذا الأساس سيساعدك في جميع مجالات البرمجة.</p>
+                            <p><strong>مصادر:</strong> <a href="https://www.youtube.com/playlist?list=PLsyeobzWxl7oRKwDi7wjrANsbhTX0IK0J" target="_blank">Data Structures & Algorithms - Telusko</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>اختر مجال التخصص</h3>
+                            <p>بعد إتقان الأساسيات، اختر المجال الذي تود التخصص فيه (تطوير ويب، تطبيقات، علم بيانات، إلخ). راجع قسم "أنواع البرمجة" أعلاه للمساعدة في الاختيار.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>تعلم التقنيات المتخصصة</h3>
+                            <p>تعمق في التقنيات والأدوات الخاصة بمجال تخصصك. على سبيل المثال، لو اخترت تطوير الويب، تعلم إطار عمل مثل React أو Angular.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>بناء المشاريع والتطبيق العملي</h3>
+                            <p>ابدأ ببناء مشاريع شخصية، شارك في مشاريع مفتوحة المصدر، وأنشئ محفظة أعمال (Portfolio) تعرض مهاراتك وإنجازاتك.</p>
+                            <p><strong>نصيحة:</strong> ابدأ بمشاريع صغيرة وتدرج إلى مشاريع أكبر</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Learning Resources -->
+        <section id="resources">
+            <div class="section-title">
+                <h2>أفضل منصات تعلم البرمجة</h2>
+            </div>
+            
+            <div class="resources-grid">
+                <!-- Resource 1 -->
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="YouTube Learning">
+                    </div>
+                    <div class="resource-content">
+                        <div class="platform">
+                            <i class="fab fa-youtube"></i> YouTube
+                        </div>
+                        <h3>قنوات عربية مميزة</h3>
+                        <p>قنوات يوتيوب عربية تقدم محتوى تعليمي عالي الجودة في مختلف مجالات البرمجة</p>
+                        <ul class="resource-list">
+                            <li><a href="https://www.youtube.com/c/ElzeroWebSchool" target="_blank">Elzero Web School</a></li>
+                            <li><a href="https://www.youtube.com/c/AbdullahAldakhil" target="_blank">عبدالله الدخيل</a></li>
+                            <li><a href="https://www.youtube.com/c/Codezilla" target="_blank">Codezilla</a></li>
+                            <li><a href="https://www.youtube.com/c/AhmedElsayed226" target="_blank">أحمد السيد</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Online Courses">
+                    </div>
+                    <div class="resource-content">
+                        <div class="platform">
+                            <i class="fas fa-graduation-cap"></i> منصات عالمية
+                        </div>
+                        <h3>منصات تعليمية متخصصة</h3>
+                        <p>منصات تقدم دورات منظمة وشهادات معتمدة في مختلف تخصصات البرمجة</p>
+                        <ul class="resource-list">
+                            <li><a href="https://www.coursera.org/" target="_blank">Coursera (دورات من جامعات عالمية)</a></li>
+                            <li><a href="https://www.udemy.com/" target="_blank">Udemy (دورات مدفوعة بأسعار معقولة)</a></li>
+                            <li><a href="https://www.edx.org/" target="_blank">edX (دورات مجانية من MIT وهارفارد)</a></li>
+                            <li><a href="https://www.khanacademy.org/computing" target="_blank">Khan Academy (للمبتدئين)</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card">
+                    <div class="resource-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Coding Practice">
+                    </div>
+                    <div class="resource-content">
+                        <div class="platform">
+                            <i class="fas fa-laptop-code"></i> تمارين عملية
+                        </div>
+                        <h3>منصات التحدي والتمرين</h3>
+                        <p>مواقع لتحسين مهاراتك البرمجية من خلال حل المشكلات والتحديات</p>
+                        <ul class="resource-list">
+                            <li><a href="https://www.codewars.com/" target="_blank">Codewars (تحديات برمجية بمستويات)</a></li>
+                            <li><a href="https://leetcode.com/" target="_blank">LeetCode (تحضير لمقابلات العمل)</a></li>
+                            <li><a href="https://www.hackerrank.com/" target="_blank">HackerRank (تمارين في مختلف اللغات)</a></li>
+                            <li><a href="https://exercism.org/" target="_blank">Exercism (تعلم مع مرشدين)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="section-title">
+                <h2>أسئلة شائعة للمبرمجين المبتدئين</h2>
+            </div>
+            
+            <div class="faq-section">
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            ما هي أفضل لغة برمجة للبدء بها؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>هذا يعتمد على مجال اهتمامك، لكن بشكل عام:</p>
+                            <ul>
+                                <li>للتطوير العام: Python (بسيطة وسهلة التعلم)</li>
+                                <li>لتطوير الويب: JavaScript (ضرورية للواجهات الأمامية)</li>
+                                <li>لتطوير التطبيقات: Java أو Kotlin (لأندرويد)، Swift (لـ iOS)</li>
+                                <li>للذكاء الاصطناعي: Python (الملك في هذا المجال)</li>
+                            </ul>
+                            <p>الأهم هو البدء بأي لغة وإتقان مفاهيم البرمجة الأساسية، ثم يمكنك الانتقال للغات أخرى بسهولة.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            كم من الوقت أحتاج لتعلم البرمجة؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>تعلم البرمجة رحلة مستمرة، لكن يمكنك الوصول لمستوى جيد خلال 6-12 شهرًا من التعلم المنتظم (10-15 ساعة أسبوعيًا).</p>
+                            <p>المراحل:</p>
+                            <ul>
+                                <li>الأساسيات: 2-3 أشهر</li>
+                                <li>مجال التخصص: 3-6 أشهر</li>
+                                <li>بناء مشاريع عملية: 3-6 أشهر</li>
+                            </ul>
+                            <p>الأهم من المدة هو الاستمرارية والتطبيق العملي.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            هل أحتاج لشهادة جامعية لأصبح مبرمجًا؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>لا، ليس ضروريًا. مجال البرمجة من أكثر المجالات التي تعتمد على المهارات العملية والقدرة على حل المشكلات.</p>
+                            <p>ما تحتاجه هو:</p>
+                            <ul>
+                                <li>مهارات برمجية قوية</li>
+                                <li>محفظة أعمال (Portfolio) لمشاريعك</li>
+                                <li>مهارات حل المشكلات والخوارزميات</li>
+                                <li>معرفة بنظم التحكم بالإصدارات مثل Git</li>
+                            </ul>
+                            <p>الكثير من المبرمجين الناجحين هم من "العلماء الذاتيين" (Self-taught).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            كيف أبدأ في سوق العمل السوري؟
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نصائح لبدء العمل كمبرمج في سوريا:</p>
+                            <ul>
+                                <li>أنشئ حسابًا على منصات العمل الحر مثل <strong>Mostaql</strong> و<strong>Khamsat</strong></li>
+                                <li>شارك في مشاريع مفتوحة المصدر على GitHub</li>
+                                <li>انضم لمجتمعات المبرمجين السوريين على Facebook وTelegram</li>
+                                <li>ابدأ بمشاريع صغيرة ثم تدرج للأكبر</li>
+                                <li>تقدم لفرص التدريب في الشركات المحلية</li>
+                                <li>طور مهاراتك في اللغة الإنجليزية فهي مفتاح للعمل الدولي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>عن مبرمج سوري</h3>
+                    <p>منصة مجانية تهدف إلى تمكين المبرمجين السوريين المبتدئين وتزويدهم بجميع الموارد اللازمة لبدء رحلتهم في عالم البرمجة والوصول إلى الاحتراف.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="#types"><i class="fas fa-arrow-left"></i> أنواع البرمجة</a></li>
+                        <li><a href="#path"><i class="fas fa-arrow-left"></i> مسار التعلم</a></li>
+                        <li><a href="#resources"><i class="fas fa-arrow-left"></i> مصادر التعلم</a></li>
+                        <li><a href="#faq"><i class="fas fa-arrow-left"></i> الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>مواقع مفيدة</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://stackoverflow.com/" target="_blank"><i class="fab fa-stack-overflow"></i> Stack Overflow</a></li>
+                        <li><a href="https://www.freecodecamp.org/" target="_blank"><i class="fas fa-laptop-code"></i> FreeCodeCamp</a></li>
+                        <li><a href="https://www.w3schools.com/" target="_blank"><i class="fas fa-code"></i> W3Schools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@barmaj-suri.com</a></li>
+                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram Channel</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook Page</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 مبرمج سوري. جميع الحقوق محفوظة. صمم بكل ❤️ للمبرمجين السوريين</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
